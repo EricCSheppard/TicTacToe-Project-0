@@ -5,9 +5,13 @@
 // finds the reset button
 const reset = document.querySelector('#reset')
 const container = document.querySelector('#container')
+let boxes = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+let moves = 0
 
 const playBox = () => {
     console.log('I clicked a box')
+    moves ++
+    console.log('Number of moves:', moves)
 } 
 
 
@@ -27,6 +31,7 @@ const initialState = () => {
 
 const resetGame = () => {
     console.log('pressed reset button')
+    moves = 0
 }
 
 // runs the reset function when reset button is clicked
