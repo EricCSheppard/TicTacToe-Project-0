@@ -28,3 +28,11 @@ button {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     cursor: pointer;
 }
+
+.X {
+    background-color:aqua;
+}
+
+.O {
+    background-color:blueviolet;
+}

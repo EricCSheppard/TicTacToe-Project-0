@@ -14,9 +14,8 @@
 // finds the reset button
 const reset = document.querySelector('#reset')
 const container = document.querySelector('#container')
-
-const xClass = 'x'
-const oClass = 'o'
+const xClass = 'X'
+const oClass = 'O'
 const WinCon = [
     [1, 2, 3],
     [4, 5, 6],
@@ -28,19 +27,17 @@ const WinCon = [
     [3, 5, 7],
 ] 
 let moves = 1
-let playerO = false
-
+let playerX = true
 
 
 const playBox = (event) => {
     const box = event.target
-    const currentClass = playerO ? oClass : xClass
+    const currentClass = playerX ? xClass : oClass
     placeMark(box, currentClass)
     moves ++
+    // console.log(playerX)
     playerTurn()
-    console.log('Number of moves:', moves)
-    console.log(playerO)
-
+    // console.log('Number of moves:', moves)
 } 
 
 const placeMark = (box, currentClass) => {
@@ -48,12 +45,13 @@ const placeMark = (box, currentClass) => {
 }
 
 const playerTurn = () => {
-    if ((moves % 2) === 0 && moves !== 1) {
-        playerO = true
+    if ((moves % 2) === 0 && (moves !== 1)) {
+        playerX = false
     } else {
-        playerO = false
+        playerX = true
     } 
 }
+
 
 // make game board and squares within
 const initialState = () => {
@@ -71,8 +69,8 @@ const initialState = () => {
 
 const resetGame = () => {
     console.log('pressed reset button')
-    moves = 0
-    playerO = false
+    moves = 1
+    playerX = true
     initialState()
 }
 
