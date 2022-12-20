@@ -31,8 +31,10 @@ button {
 
 .X {
     background-color:aqua;
+    pointer-events: none;
 }
 
 .O {
     background-color:blueviolet;
+    pointer-events: none;
 }

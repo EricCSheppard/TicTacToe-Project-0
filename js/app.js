@@ -16,27 +16,38 @@ const reset = document.querySelector('#reset')
 const container = document.querySelector('#container')
 const xClass = 'X'
 const oClass = 'O'
-const WinCon = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-    [1, 4, 7],
-    [2, 5, 8],
-    [3, 6, 9],
-    [1, 5, 9],
-    [3, 5, 7],
-] 
 let moves = 1
 let playerX = true
+let winCon = [
+    ['1', '2', '3'],
+    ['4', '5', '6'],
+    ['7', '8', '9'],
+    ['1', '4', '7'],
+    ['2', '5', '8'],
+    ['3', '6', '9'],
+    ['1', '5', '9'],
+    ['3', '5', '7']
+]
+let playerOMoves = []
+let playerXMoves = []
 
 
 const playBox = (event) => {
     const box = event.target
     const currentClass = playerX ? xClass : oClass
     placeMark(box, currentClass)
+    if (playerX === false) {
+    playerOMoves.push(event.target.id)
+    } else {
+        playerXMoves.push(event.target.id)
+    }
+    console.log(box.innerHTML)
+    // checkWinCondition()
     moves ++
     // console.log(playerX)
     playerTurn()
+    console.log(playerOMoves)
+    console.log(playerXMoves)
     // console.log('Number of moves:', moves)
 } 
 
@@ -53,6 +64,8 @@ const playerTurn = () => {
 }
 
 
+
+
 // make game board and squares within
 const initialState = () => {
     while (container.firstChild) {
@@ -64,14 +77,18 @@ const initialState = () => {
         container.appendChild(box)
         box.setAttribute('id', i)
         box.addEventListener('click', playBox)
+        
     }
 }
+
 
 const resetGame = () => {
     console.log('pressed reset button')
     moves = 1
     playerX = true
     initialState()
+    playerOMoves = []
+    playerXMoves = []
 }
 
 // runs the reset function when reset button is clicked
