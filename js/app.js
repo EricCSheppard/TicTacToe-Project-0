@@ -1,4 +1,7 @@
 const reset = document.querySelector('#reset')
+const clearWins = document.querySelector('#clearwins')
+const body = document.querySelector('#body')
+const wins = document.querySelector("#wins")
 const container = document.querySelector('#container')
 const indicator = document.querySelector('#indicator')
 const xClass = 'X'
@@ -62,10 +65,22 @@ const checkWin = () => {
 const printWin = (moves, result) => {
     if (result === true | result === false | (result === null && moves === 9)) {
         if (result === true) {
+            const xWin = document.createElement('div')
+            xWin.classList.add('X')
+            xWin.setAttribute('id', 'win')
+            wins.appendChild(xWin)
             gameOverX()
         } else if (result === false) {
+            const oWin = document.createElement('div')
+            oWin.classList.add('O')
+            oWin.setAttribute('id', 'win')
+            wins.appendChild(oWin)
             gameOverO()
         } else if (moves === 9 && result === null) {
+            const tWin = document.createElement('div')
+            tWin.classList.add('T')
+            tWin.setAttribute('id', 'win')
+            wins.appendChild(tWin)
             gameOverTie()
         }
     } 
@@ -134,7 +149,18 @@ const resetGame = () => {
     indicator.style.removeProperty('background-color')
 }
 
+const resetCounter = () => {
+while (wins.firstChild) {
+    wins.removeChild(wins.firstChild)
+}
+}
+
+
+
+
 reset.addEventListener('click', resetGame)
+
+clearWins.addEventListener('click', resetCounter)
 
 document.addEventListener('DOMContentLoaded', () => {
         initialState()

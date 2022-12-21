@@ -6,7 +6,9 @@ body {
 
 button {
     height: 30px;
+    width:  30px;
     margin: 20px;
+    font-size: 22px;
 }
 
 #container {
@@ -28,10 +30,23 @@ button {
 
 #indicator {
     
-    width: 25px;
-    height: 25px;   
+    width: 30px;
+    height: 30px;   
     border: 1px solid #555;
     margin: 20px;
+}
+
+#wins {
+    width: 50px;
+
+}
+
+#win {
+    height: 30px;
+    width: 30px;
+    margin: 20px;
+    border: 1px solid #555;
+
 }
 
 .X {
