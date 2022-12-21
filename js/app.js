@@ -1,5 +1,6 @@
 const reset = document.querySelector('#reset')
 const container = document.querySelector('#container')
+const indicator = document.querySelector('#indicator')
 const xClass = 'X'
 const oClass = 'O'
 let moves = 1
@@ -37,8 +38,12 @@ const placeMark = (box, currentClass) => {
 
 const playerTurn = () => {
     if ((moves % 2) === 0 && (moves !== 1)) {
+        indicator.classList.remove('X')
+        indicator.classList.add('O')
         playerX = false
     } else {
+        indicator.classList.remove('O')
+        indicator.classList.add('X')
         playerX = true
     } 
 }
@@ -61,7 +66,7 @@ const printWin = (moves, result) => {
         } else if (result === false) {
             gameOverO()
         } else if (moves === 9 && result === null) {
-            resetGame()
+            gameOverTie()
         }
     } 
 }
@@ -82,6 +87,7 @@ const initialState = () => {
         container.appendChild(box)
         box.setAttribute('id', i)
         box.addEventListener('click', playBox)
+        indicator.classList.add('X')
     }
 }
 
@@ -90,8 +96,10 @@ const gameOverX = () => {
         function(node) {
             node.classList.remove('O')
             node.classList.add('X')
+            document.getElementById('indicator').style.backgroundColor = 'aqua'
         }
     )
+    
 }
 
 const gameOverO = () => {
@@ -99,9 +107,22 @@ const gameOverO = () => {
         function(node) {
             node.classList.remove('X')
             node.classList.add('O')
+            document.getElementById('indicator').style.backgroundColor = 'blueviolet'
         }
     )
 }
+
+const gameOverTie = () => {
+    container.childNodes.forEach(
+        function(node) {
+            node.classList.remove('X')
+            node.classList.remove('O')
+            node.classList.add('T')
+            document.getElementById('indicator').style.backgroundColor = 'gray'
+        }
+    )
+}
+
 
 const resetGame = () => {
     moves = 1
@@ -109,6 +130,8 @@ const resetGame = () => {
     initialState()
     playerOMoves = []
     playerXMoves = []
+    indicator.classList.remove('O')
+    indicator.style.removeProperty('background-color')
 }
 
 reset.addEventListener('click', resetGame)

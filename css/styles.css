@@ -26,10 +26,12 @@ button {
     cursor: pointer;
 }
 
-#result {
-    display: flex;
-    margin: 0 auto;
-    font-size: 30px;
+#indicator {
+    
+    width: 25px;
+    height: 25px;   
+    border: 1px solid #555;
+    margin: 20px;
 }
 
 .X {
@@ -40,4 +42,8 @@ button {
 .O {
     background-color:blueviolet;
     pointer-events: none;
+}
+
+.T {
+    background-color: grey;
 }
