@@ -29,6 +29,12 @@ button {
     cursor: pointer;
 }
 
+#result {
+    display: flex;
+    margin: 0 auto;
+    font-size: 30px;
+}
+
 .X {
     background-color:aqua;
     pointer-events: none;
@@ -36,5 +42,11 @@ button {
 
 .O {
     background-color:blueviolet;
+    pointer-events: none;
+}
+
+.endx {
+    
+    background-color:aqua;
     pointer-events: none;
 }
