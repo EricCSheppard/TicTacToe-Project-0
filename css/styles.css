@@ -23,9 +23,6 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: grey;
-    font-size: 110px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     cursor: pointer;
 }
 
@@ -42,11 +39,5 @@ button {
 
 .O {
     background-color:blueviolet;
-    pointer-events: none;
-}
-
-.endx {
-    
-    background-color:aqua;
     pointer-events: none;
 }

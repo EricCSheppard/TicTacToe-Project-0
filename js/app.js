@@ -26,10 +26,9 @@ const playBox = (event) => {
     } else {
         playerXMoves.push(event.target.id)
     }
-    checkWin()
+    printWin(moves, checkWin())
     moves ++
     playerTurn()
-    printWin(moves, checkWin())
 } 
 
 const placeMark = (box, currentClass) => {
@@ -58,9 +57,9 @@ const checkWin = () => {
 const printWin = (moves, result) => {
     if (result === true | result === false | (result === null && moves === 9)) {
         if (result === true) {
-            gameOver()
+            gameOverX()
         } else if (result === false) {
-            gameOver()
+            gameOverO()
         } else if (moves === 9 && result === null) {
             resetGame()
         }
@@ -86,13 +85,25 @@ const initialState = () => {
     }
 }
 
-const gameOver = () => {
-    alert('game over')
+const gameOverX = () => {
+    container.childNodes.forEach(
+        function(node) {
+            node.classList.remove('O')
+            node.classList.add('X')
+        }
+    )
 }
 
+const gameOverO = () => {
+    container.childNodes.forEach(
+        function(node) {
+            node.classList.remove('X')
+            node.classList.add('O')
+        }
+    )
+}
 
 const resetGame = () => {
-    // console.log('pressed reset button')
     moves = 1
     playerX = true
     initialState()
