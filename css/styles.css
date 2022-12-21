@@ -6,7 +6,9 @@ body {
 
 button {
     height: 30px;
+    width:  30px;
     margin: 20px;
+    font-size: 22px;
 }
 
 #container {
@@ -26,10 +28,25 @@ button {
     cursor: pointer;
 }
 
-#result {
-    display: flex;
-    margin: 0 auto;
-    font-size: 30px;
+#indicator {
+    
+    width: 30px;
+    height: 30px;   
+    border: 1px solid #555;
+    margin: 20px;
+}
+
+#wins {
+    width: 50px;
+
+}
+
+#win {
+    height: 30px;
+    width: 30px;
+    margin: 20px;
+    border: 1px solid #555;
+
 }
 
 .X {
@@ -40,4 +57,8 @@ button {
 .O {
     background-color:blueviolet;
     pointer-events: none;
+}
+
+.T {
+    background-color: grey;
 }
