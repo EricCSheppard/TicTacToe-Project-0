@@ -23,16 +23,21 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: grey;
-    font-size: 110px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     cursor: pointer;
+}
+
+#result {
+    display: flex;
+    margin: 0 auto;
+    font-size: 30px;
 }
 
 .X {
     background-color:aqua;
+    pointer-events: none;
 }
 
 .O {
     background-color:blueviolet;
+    pointer-events: none;
 }
