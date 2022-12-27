@@ -32,7 +32,6 @@ button {
 }
 
 #indicator {
-    
     width: 30px;
     height: 30px;   
     border: 1px solid #555;
@@ -67,4 +66,15 @@ button {
 
 .T {
     background-color: grey;
+    pointer-events: none;
+}
+
+@media (max-width: 480px) {
+    #container {
+        grid-template-rows: 60px 60px 60px;
+        grid-template-columns: 60px 60px 60px;
+        column-gap: 10px;
+        row-gap: 10px;
+        margin: 10px;
+    }
 }

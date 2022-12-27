@@ -156,8 +156,6 @@ while (wins.firstChild) {
 }
 
 
-
-
 reset.addEventListener('click', resetGame)
 
 clearWins.addEventListener('click', resetCounter)
